@@ -2,7 +2,17 @@ POST http://localhost:3333/events
 Content-Type: application/json
 
 {
-  "title": "Mentoria Rocketseat One",
-  "details": "Mentoria para novos alunos do One",
-  "maximumAttendees": 20
+  "title": "Evento teste 2",
+  "details": "null",
+  "maximumAttendees": 1
+}
+
+###
+
+POST http://localhost:3333/events/374403be-a94d-4997-b2bb-da11a78f3bff/attendees
+Content-Type: application/json
+
+{
+  "name": "Michelle",
+  "email": "email@gmail.com"
 }
