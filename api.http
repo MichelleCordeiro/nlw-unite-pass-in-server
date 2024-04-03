@@ -2,7 +2,7 @@ POST http://localhost:3333/events
 Content-Type: application/json
 
 {
-  "title": "Global Career Summit",
-  "details": "Um evento para quem quer conquistar uma vaga no exterior",
-  "maximumAttendees": 200
+  "title": "Mentoria Rocketseat One",
+  "details": "Mentoria para novos alunos do One",
+  "maximumAttendees": 20
 }
