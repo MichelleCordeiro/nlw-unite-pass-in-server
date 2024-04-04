@@ -19,7 +19,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3333/events/6bde3d47-b6ba-4131-abfe-06452cfb88c6
+GET http://localhost:3333/events/9e9bd979-9d10-4915-b339-3786b1634f33
 
 ###
 
@@ -31,6 +31,6 @@ GET http://localhost:3333/attendees/4/check-in
 
 ###
 
-GET http://localhost:3333/events/6bde3d47-b6ba-4131-abfe-06452cfb88c6/attendees
+GET http://localhost:3333/events/9e9bd979-9d10-4915-b339-3786b1634f33/attendees
 
 # GET http://localhost:3333/events/6bde3d47-b6ba-4131-abfe-06452cfb88c6/attendees?query=mic
