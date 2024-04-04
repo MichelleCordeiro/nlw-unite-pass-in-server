@@ -11,7 +11,7 @@ O sistema fará um scan da credencial do participante para permitir a entrada no
 
 <br>
 
-## 🚀 Technologies
+## 🚀 Technologias
 <p>
   <code><img height="35" alt="javascript logo" src="https://i0.wp.com/pt.mundobabushka.com/wp-content/uploads/sites/5/2016/03/js-logo.png?fit=500%2C500&ssl=1"></code>
   <code><img height="35" alt="nodejs logo" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"></code>
@@ -23,6 +23,17 @@ O sistema fará um scan da credencial do participante para permitir a entrada no
   <code><img height="30" alt="swagger logo" src="https://i.postimg.cc/wBSQNx13/swagger-logo.png"></code>
   <code><img height="33" alt="vs code logo" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png"></code>
 </p>
+
+- **[Javascript](https://www.javascript.com/)**: linguagem de programação que permite implementar funcionalidades mais complexas em páginas web
+- **[NodeJS](https://nodejs.org/)**: ambiente de execução do código JavaScript do lado servidor (server side)
+- **[TypeScript](https://www.typescriptlang.org/)**: superset de JavaScript que adiciona tipagem estática ao código
+- **[SQLite](https://www.sqlite.org/)**: base de dados relacional de código aberto e que dispensa o uso de um servidor na sua atuação, podendo ser disponibilizado junto com uma aplicação
+- **[Prisma](https://www.prisma.io/)**: biblioteca de banco de dados ORM (Object-Relational Mapping) para NodeJS e TypeScript. Ele fornece uma interface de programação de aplicativo (API) para interagir com um banco de dados usando o Prisma Schema
+- **[Fastify](https://fastify.dev/)**: framework web extremamente rápido e eficiente para NodeJS, projetado para fornecer alto desempenho com baixo consumo de recursos, adequado para desenvolvimento de APIs e serviços web
+- **[Fastify-Swagger](https://github.com/fastify/fastify-swagger)**: plugin Fastify que gera automaticamente a documentação a partir de seus esquemas de rota e parâmetros ou de um esquema Swagger/OpenAPI existente
+- **[Fastify-Swagger-UI](https://github.com/fastify/fastify-swagger-ui)**: pacote independente que fornece uma interface para usuário visualizar e interagir com APIs definidas com o Swagger
+- **[Fastify-cors](https://github.com/fastify/fastify-cors)**: plugin Fastify que permite configurar políticas de Cross-Origin Resource Sharing (CORS) para controlar o acesso a recursos de origens diferentes
+- **[Zod](https://zod.dev/)**: biblioteca de validação de esquemas altamente eficiente e fácil de usar para JavaScript e TypeScript, permite definir e validar esquemas de forma declarativa, ajudando a garantir a integridade dos dados em seu aplicativo
 
 <br>
 
@@ -51,13 +62,17 @@ O sistema fará um scan da credencial do participante para permitir a entrada no
 
 ## 📝 Documentação da API (Swagger)
 
-Para documentação da API, acesse o link: https://nlw-unite-nodejs.onrender.com/docs
+Para documentação da API (rotas e parâmetros), acesse o link: https://nlw-unite-nodejs.onrender.com/docs
+
+Ou acesse a documentação local em http://localhost:3333/docs
+
+>Nota: Aplicação  desenvolvida usando a versão Node.js v20.11. Em caso de problemas, tente atualizar o Node.js para a versão mais recente.
 
 <br>
 
 ## 🗃️ Banco de dados
 
-Nessa aplicação vamos utilizar banco de dados relacional (SQL). Para ambiente de desenvolvimento seguiremos com o SQLite pela facilidade do ambiente.
+Nessa aplicação foi utilizado banco de dados relacional (SQL). Para ambiente de desenvolvimento o SQLite foi adotado pela facilidade do ambiente.
 
 ### Diagrama ERD
 
@@ -102,3 +117,62 @@ CREATE UNIQUE INDEX "attendees_event_id_email_key" ON "attendees"("event_id", "e
 -- CreateIndex
 CREATE UNIQUE INDEX "check_ins_attendeeId_key" ON "check_ins"("attendeeId");
 ```
+<br>
+
+## 🛠️ Instalação
+
+1. Clone ou faça o download do repositório
+```
+git clone https://github.com/Vitinho163/NLW-Unite---Pass-In.git
+```
+
+2. Instale as dependências
+```
+npm install
+```
+
+3. Renomeie o arquivo `.env.example` para `.env` e preencha as informações
+```
+DATABASE_URL=""
+```
+
+4. Execute as migrações
+```
+npm run migrate
+```
+
+<br>
+
+## 🚀 Iniciando aplicação
+
+Para rodar a aplicação em modo produção
+
+1. Build na aplicação
+```
+npm run build
+```
+
+2. Inicie a aplicação
+```
+npm run start
+```
+
+<br>
+
+Para rodar a aplicação em modo desenvolvimento
+```
+npm run dev
+```
+
+<br>
+
+## 🌐 Deploy
+
+Esta API foi hospedada diretamente no Render.
+
+O deployment pode ser acessado no seguinte endereço:
+```
+https://nlw-unite-pass-in.onrender.com/
+```
+
+>Nota: Como está hospedado em um serviço gratuito, a aplicação 'hiberna' após 15 minutos de inatividade. Se você estiver tentando acessar o site e o BackEnd não responder, basta aguardar, pois ele estará 'inicializando' os serviços.
