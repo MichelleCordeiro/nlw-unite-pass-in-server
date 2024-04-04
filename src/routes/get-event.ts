@@ -6,8 +6,11 @@ import { prisma } from '../lib/prisma'
 export async function getEvent(app: FastifyInstance) {
   app
     .withTypeProvider<ZodTypeProvider>()
-    .get('/events/:eventId',{
+    .get('/events/:eventId', {
       schema: {
+        summary: 'Get an event',
+        tags: ['events'],
+
         params: z.object({
           eventId: z.string().uuid()
         }),
@@ -26,7 +29,7 @@ export async function getEvent(app: FastifyInstance) {
       }
     },
     async (request, reply) => {
-      const { eventId } = request.params
+      const { eventId } = request.params;
 
       const event = await prisma.event.findUnique({
         select: {
@@ -44,10 +47,10 @@ export async function getEvent(app: FastifyInstance) {
         where: {
           id: eventId
         }
-      })
+      });
 
       if (event === null) {
-        throw new Error('Event not found.')
+        throw new Error('Event not found.');
       }
 
       return reply.send({
@@ -59,7 +62,7 @@ export async function getEvent(app: FastifyInstance) {
           maximumAttendees: event.maximumAttendees,
           attendeesAmount: event._count.attendees
         }
-      })
+      });
     }
-  )
+  );
 }

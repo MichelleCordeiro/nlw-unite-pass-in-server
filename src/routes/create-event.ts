@@ -9,6 +9,9 @@ export async function createEvent(app: FastifyInstance) {
     .withTypeProvider<ZodTypeProvider>()
     .post('/events', {
       schema: {
+        summary: 'Create an event',
+        tags: ['events'],
+        
         body: z.object({
           title: z.string().min(4),
           details: z.string().nullable(),
@@ -20,20 +23,21 @@ export async function createEvent(app: FastifyInstance) {
           })
         }
       }
-    }, async (request, reply) => {
-      const { title, details, maximumAttendees } = request.body
+    },
+    async (request, reply) => {
+      const { title, details, maximumAttendees } = request.body;
 
-      const slug = generateSlug(title)
+      const slug = generateSlug(title);
 
       const eventWithSameSlug = await prisma.event.findUnique({
         where: {
           // slug: slug
           slug
         }
-      })
+      });
 
       if (eventWithSameSlug !== null) {
-        throw new Error('Another event with same title already exists')
+        throw new Error('Another event with same title already exists');
       }
 
       const event = await prisma.event.create({
@@ -43,9 +47,9 @@ export async function createEvent(app: FastifyInstance) {
           maximumAttendees,
           slug
         }
-      })
+      });
 
-      return reply.status(201).send({ eventId: event.id })
+      return reply.status(201).send({ eventId: event.id });
     }
-  )
+  );
 }
